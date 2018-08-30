@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Designer</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
+    <script type="text/javascript" src="node_modules/jQuery/tmp/jquery.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+     <style>
+        body {
+            margin: auto;
+            margin-left: 400px;
+            margin-top: 40px;
+        }
+
+        input {
+            margin: auto;
+            height: 25px;
+            width: 250px;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#time").hide();
+            $("#wen").hide();
+            $("#bj").hide();
+            $("#bj1").hide();
+            $("#btn1").click(function () {
+                alert("选择字段类型");
+                var name;
+                name = prompt("文本 或 日期");
+                if (name == "文本") {
+                    $("#wen").show();
+                }
+                if (name == "日期") {
+                    $("#time").show();
+                }
+                if (name !== "文本" && name !== "日期") {
+                    alert("请输入正确的类型!")
+                }
+            })
+
+            $("#sc").click(function () {
+                $("#wen").remove();
+            });
+
+            $("#sc1").click(function () {
+                $("#time").remove();
+            });
+
+            $("#yl").click(function () {
+                $("#wen").show();
+                $("#time").show();
+                $("#btn1").hide();
+                 $("#sc1").hide();
+                $("#sc").hide();
+                $("#bj").show();
+                $("#bj1").show();
+                
+            });
+
+            $("#bj").click(function () {
+                $("#btn1").show();
+                $("#wen").show();
+                $("#time").show();
+                $("#bj").hide();
+                $("#bj1").hide();
+                $("#sc1").show();
+                $("#sc").show();
+            });
+            $("#bj1").click(function () {
+                $("#btn1").show();
+                $("#wen").show();
+                $("#time").show();
+                $("#bj").hide();
+                $("#bj1").hide();
+                 $("#sc1").show();
+                $("#sc").show();
+            });
+        })
+    </script>
+  </head>
+  <body>
+  <button id="btn1">添加</button>
+  <button id="yl">预览</button>
+  <br>
+  <br>
+  <div id="time">
+    <input type="date" name="user_date" />
+    <button id="sc1" value="删除">删除</button>
+    <button id="bj1" value="编辑">编辑</button>
+  </div>
+  <div id="wen">
+    <input type="text" />
+    <button id="sc">删除</button>
+    <button id="bj" value="编辑">编辑</button>
+  </div>
+  </body>
+</html>
